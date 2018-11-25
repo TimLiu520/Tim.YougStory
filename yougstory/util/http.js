@@ -13,6 +13,7 @@ class HTTP{
         }
         wx.request({
            url:config.api_base_url+parms.url,
+           data:parms.data,
            method:parms.method,
            header:{
                'content-type':"application/json",
@@ -23,7 +24,7 @@ class HTTP{
 
                if(code.startsWith('2'))
                {
-                parms.success(res.data);
+                parms.success && parms.success(res.data);
                }else
                {
                    //失败
@@ -32,7 +33,7 @@ class HTTP{
                }
            },
            fail:(err)=>{
-            _show_error(500);
+            this._show_error(500);
            }
         });
     }

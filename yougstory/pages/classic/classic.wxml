@@ -2,11 +2,11 @@
     <view class="container-top">
         <nodate-cmp index="{{classicData.index}}"></nodate-cmp>
         <view class="like">
-            <like-cmp like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" bind:onLike="onLike"></like-cmp>
+            <like-cmp like="{{classicData.like_status}}" count="{{classicData.fav_nums}}" bind:like="onLike"></like-cmp>
         </view>
     </view>
     <view class="container-body">
-        <movie-cmp imgurl="{{classicData.image}}" content="{{classicData.title}}"></movie-cmp>
-        <navi-cmp class="navi" content="饮食男女"></navi-cmp>
+        <movie-cmp imgurl="{{classicData.image}}" content="{{classicData.content}}"></movie-cmp>
+        <navi-cmp class="navi" content="{{classicData.title}}"></navi-cmp>
     </view>
 </view>

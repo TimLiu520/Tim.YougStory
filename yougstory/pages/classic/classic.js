@@ -1,6 +1,8 @@
 // pages/classic/classic.js
 import {ClassicModel} from '../../models/classic.js'
+import {LikeModel} from '../../models/like.js'
 var model=new ClassicModel();
+var likeModel=new LikeModel();
 Page({
 
   /**
@@ -21,8 +23,6 @@ Page({
            classicData:data
        });
     });
-    
-  
   },
   /**
    * 点赞事件
@@ -30,6 +30,8 @@ Page({
   onLike:function(event)
   {
      console.log(event);
+     let behavior=event.detail.behavior;
+     likeModel.like(behavior,this.data.classicData.id,this.data.classicData.type);
   },
 
   /**
