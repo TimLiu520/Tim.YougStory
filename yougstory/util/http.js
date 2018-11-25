@@ -32,7 +32,7 @@ class HTTP{
                }
            },
            fail:(err)=>{
-            _show_error('500');
+            _show_error(500);
            }
         });
     }
