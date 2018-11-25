@@ -2,7 +2,7 @@
     <view class="container-top">
         <nodate-cmp index="9"></nodate-cmp>
         <view class="like">
-            <like-cmp></like-cmp>
+            <like-cmp like="{{classicData.like_status}}" count="{{classicData.fav_nums}}"></like-cmp>
         </view>
     </view>
     <view class="container-body">

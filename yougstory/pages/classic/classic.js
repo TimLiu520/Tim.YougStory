@@ -1,11 +1,13 @@
 // pages/classic/classic.js
+import {ClassicModel} from '../../models/classic.js'
+var model=new ClassicModel();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+test:"1"
   },
 
   /**
@@ -13,6 +15,14 @@ Page({
    */
   onLoad: function (options) {
 
+    model.getLatest((data)=>{
+      console.log(data);
+       this.setData({
+           classicData:data
+       });
+    });
+    
+  
   },
 
   /**
