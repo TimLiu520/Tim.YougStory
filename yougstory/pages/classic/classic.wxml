@@ -1,0 +1,12 @@
+<view class="container">
+    <view class="container-top">
+        <nodate-cmp index="9"></nodate-cmp>
+        <view class="like">
+            <like-cmp></like-cmp>
+        </view>
+    </view>
+    <view class="container-body">
+        <movie-cmp></movie-cmp>
+        <navi-cmp class="navi" content="饮食男女"></navi-cmp>
+    </view>
+</view>

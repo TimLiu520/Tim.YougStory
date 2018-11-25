@@ -1,0 +1,6 @@
+<!-- components/navi/index.wxml -->
+<view class="container">
+    <image class="left" src="{{lefticon}}" />
+    <text>{{content}}</text>
+    <image class="right" src="{{righticon}}" />
+</view>
