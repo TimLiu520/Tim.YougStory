@@ -7,6 +7,6 @@
     </view>
     <view class="container-body">
         <movie-cmp imgurl="{{classicData.image}}" content="{{classicData.content}}"></movie-cmp>
-        <navi-cmp class="navi" content="{{classicData.title}}"></navi-cmp>
+        <navi-cmp class="navi" content="{{classicData.title}}" bind:left="onNext" bind:right="onPreVious"></navi-cmp>
     </view>
 </view>

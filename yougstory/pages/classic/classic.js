@@ -33,6 +33,19 @@ Page({
      let behavior=event.detail.behavior;
      likeModel.like(behavior,this.data.classicData.id,this.data.classicData.type);
   },
+  /**
+   * 导航下一篇
+   */
+  onNext:function(){
+
+  },
+    /**
+   * 导航前一篇
+   */
+  onPreVious:function()
+  {
+
+  }
 
   /**
    * 生命周期函数--监听页面初次渲染完成
