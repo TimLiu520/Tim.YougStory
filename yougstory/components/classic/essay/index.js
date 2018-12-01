@@ -1,6 +1,5 @@
-// components/classic/movie/index.js
+// components/classic/essay/index.js
 import {classicBehavior} from '../classic-beh.js'
-
 Component({
 
   /**
@@ -8,15 +7,20 @@ Component({
    */
   behaviors:[classicBehavior],
   properties: {
+
   },
+
   /**
    * 组件的初始数据
    */
   data: {
-    tagUrl: "images/movie@tag.png"
+    tagUrl: "images/essay@tag.png"
   },
+
   /**
    * 组件的方法列表
    */
-  methods: {}
+  methods: {
+
+  }
 })

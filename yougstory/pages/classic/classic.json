@@ -3,6 +3,8 @@
     "like-cmp": "/components/like/index",
     "nodate-cmp": "/components/nodate/index",
     "movie-cmp": "/components/classic/movie/index",
-    "navi-cmp": "/components/navi/index"
+    "navi-cmp": "/components/navi/index",
+    "music-cmp":"/components/classic/music/index",
+    "essay-cmp":"/components/classic/essay/index"
   }
 }

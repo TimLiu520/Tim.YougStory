@@ -6,7 +6,9 @@
         </view>
     </view>
     <view class="container-body">
-        <movie-cmp imgurl="{{classicData.image}}" content="{{classicData.content}}"></movie-cmp>
+        <!-- <movie-cmp imgurl="{{classicData.image}}" content="{{classicData.content}}"></movie-cmp> -->
+        <!-- <music-cmp></music-cmp> -->
+        <essay-cmp imgurl="{{classicData.image}}" content="{{classicData.content}}"></essay-cmp>
         <navi-cmp class="navi" content="{{classicData.title}}" bind:left="onNext" bind:right="onPreVious"></navi-cmp>
     </view>
 </view>
