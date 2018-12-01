@@ -2,5 +2,5 @@
 <view class="container">
     <image class="left" src="{{latest?disLeftIcon:lefticon}}" bind:tap="onLeft" />
     <text>{{content}}</text>
-    <image  class="right" src="{{first?disRightIcon:righticon}}" bind:tap="onRight" />
+    <image  class="right" src="{{first?disRightIcon:righticon}}" disable="{{!first}}" bind:tap="onRight" />
 </view>

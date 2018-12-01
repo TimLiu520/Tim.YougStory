@@ -22,13 +22,13 @@ Component({
    */
   methods: {
     onLeft:function(){
-      if(this.properties.latest)
+      if(!this.properties.latest)
       {
         this.triggerEvent('left',{},{})
       }
     },
     onRight:function(){
-      if(this.properties.first)
+      if(!this.properties.first)
       {
         this.triggerEvent('right',{},{})
       }

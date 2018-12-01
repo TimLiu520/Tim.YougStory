@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classicData:null
+    classicData:null,
+    latest:true,
+    first:false
   },
 
   /**
@@ -32,6 +34,30 @@ Page({
      console.log(event);
      let behavior=event.detail.behavior;
      likeModel.like(behavior,this.data.classicData.id,this.data.classicData.type);
+  },
+
+  onPrevious:function(event)
+  {
+    let index=this.data.classicData.index;
+    model.getClassic(index,"previous",(data)=>{
+      this.setData({
+        classicData:data,
+        latest:model.isLatest(data.index),
+        first:model.isFirst(data.index)
+      });
+    });
+  },
+  onNext:function(event)
+  {
+    console.log(event);
+    let index=this.data.classicData.index;
+    model.getClassic(index,"next",(data)=>{
+      this.setData({
+        classicData:data,
+        latest:model.isLatest(data.index),
+        first:model.isFirst(data.index)
+      });
+    });
   },
 
   /**
