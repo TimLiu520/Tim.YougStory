@@ -6,16 +6,8 @@
     justify-content: flex-start;
   }
   .container .img {
-    width: 422rpx;
-    height: 422rpx;
-    margin-top: 60rpx;
-    border-radius: 50%;
-  }
-  .container .play{
-    position: relative;
-    width: 120rpx;
-    height: 120rpx;
-    bottom: 158rpx;
+    width: 750rpx;
+    height: 500rpx;
   }
   .container .tag {
     position: relative;

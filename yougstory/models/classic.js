@@ -14,7 +14,7 @@ class ClassicModel extends HTTP{
     getPrevious(sCallBack,index)
     {
         this.request({
-           url:'classic/'+index+'/previous',
+           url:`classic/${index}/previous`,
            success:(res)=>{
                sCallBack(res);
            }
