@@ -20,7 +20,7 @@ Component({
      playSrc:"images/player@waitting.png",
     tagUrl: "images/music@tag.png"
   },
-  attached:function(){
+  detached:function(){
 eMgr.stop();
   },
 
