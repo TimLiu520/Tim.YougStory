@@ -1,5 +1,6 @@
 // components/classic/music/index.js
 import {classicBehavior} from '../classic-beh.js'
+const eMgr=wx.getBackgroundAudioManager()
 Component({
 
   /**
@@ -14,9 +15,13 @@ Component({
    * 组件的初始数据
    */
   data: {
+     isPlay:true,
      pauseSrc:"images/player@playing.png",
      playSrc:"images/player@waitting.png",
     tagUrl: "images/music@tag.png"
+  },
+  attached:function(){
+eMgr.stop();
   },
 
   /**
@@ -24,5 +29,24 @@ Component({
    */
   methods: {
 
+    onPlay:function()
+    {
+      console.log("play");
+      let isPlay=this.data.isPlay;
+      if(isPlay)
+      {
+        this.setData({
+          isPlay:false
+        });
+        eMgr.src=this.properties.src;
+        console.log(this.properties.src);
+      }else
+      {
+        this.setData({
+          isPlay:true
+        });
+        eMgr.pause();
+      }
+    }
   }
 })

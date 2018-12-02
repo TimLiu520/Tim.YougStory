@@ -1,7 +1,7 @@
 <!--components/classic/music/index.wxml-->
 <view class="container">
     <image class="img" src="{{imgurl}}" />
-    <image src="{{playSrc}}"  class="play"/>
+    <image src="{{isPlay?playSrc:pauseSrc}}"  class="play" bind:tap="onPlay"/>
     <image class="tag" src="{{tagUrl}}" />
     <text>{{content}}</text>
 </view>

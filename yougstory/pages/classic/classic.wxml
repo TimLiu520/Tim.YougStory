@@ -7,7 +7,7 @@
     </view>
     <view class="container-body">
         <movie-cmp wx:if="{{classicData.type==100}}" imgurl="{{classicData.image}}" content="{{classicData.content}}"></movie-cmp> 
-        <music-cmp wx:if="{{classicData.type==200}}"  imgurl="{{classicData.image}}" content="{{classicData.content}}">></music-cmp> 
+        <music-cmp wx:if="{{classicData.type==200}}"  imgurl="{{classicData.image}}" content="{{classicData.content}}" src="{{classicData.url}}"></music-cmp> 
         <essay-cmp wx:if="{{classicData.type==300}}"  imgurl="{{classicData.image}}" content="{{classicData.content}}"></essay-cmp>
         <navi-cmp class="navi" latest="{{latest}}" first="{{first}}"  content="{{classicData.title}}" bind:left="onNext" bind:right="onPrevious"></navi-cmp>
     </view>
