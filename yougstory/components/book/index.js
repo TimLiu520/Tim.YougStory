@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    book:Object
+    book:Object,
+    href:String
   },
 
   /**
@@ -19,5 +20,12 @@ Component({
    */
   methods: {
 
+    onTab(event)
+    {
+        const bid=this.properties.book.id;
+        wx.navigateTo({
+            url:this.properties.href
+        });
+    }
   }
 })

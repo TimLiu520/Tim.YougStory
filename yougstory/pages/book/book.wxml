@@ -9,8 +9,8 @@
     <view class="body">
         <image src="/images/book/like.png" class="head-img" />
         <view class="book">
-        <block wx:for="{{bookData}}" wx:for-item="book">
-        <book-cmp book="{{book}}"></book-cmp>
+        <block wx:key="id" wx:for="{{bookData}}" wx:for-item="book">
+        <book-cmp  book="{{book}}" href="/pages/book-detail/book-detail?bid={{book.id}}"></book-cmp>
         </block>
         </view>
     </view>
