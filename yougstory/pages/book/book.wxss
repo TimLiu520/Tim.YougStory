@@ -1,1 +1,69 @@
 /* pages/book/book.wxss */
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.container .top{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    background-color: #ffffff;
+    height:100rpx;
+    border-top:1px solid #f5f5f5;
+    border-bottom:1px solid #f5f5f5;
+    box-shadow:0 0 3px 0 #e3e3e3; 
+    z-index: 99;
+}
+.container .top .box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 50rpx;
+    height: 34px;
+    width:700rpx;
+    color:#999999;
+}
+.container .top .box image
+{
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10px;
+    margin-bottom: -2px;
+}
+
+.container .body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100rpx;
+    background-color: #f5f5f5;
+
+}
+.container .body .head-img{
+    width: 97rpx;
+    height: 42rpx;
+    margin-top: 10px;
+}
+
+.container .book
+{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10rpx;
+    flex-wrap: wrap;
+    padding: 0 90rpx 0 90rpx;
+    justify-content: space-between;
+
+}
+.container .book  book-cmp{
+    margin-bottom: 10px;
+}

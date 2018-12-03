@@ -1,2 +1,19 @@
 <!--pages/book/book.wxml-->
-<text>pages/book/book.wxml</text>
+<view class="container">
+    <view class="top">
+       <view class="box">
+           <image src="/images/icon/search.png" />
+           <text >搜索书籍</text>
+       </view>
+    </view>
+    <view class="body">
+        <image src="/images/book/like.png" class="head-img" />
+        <view class="book">
+        <block wx:for="{{bookData}}" wx:for-item="book">
+        <book-cmp book="{{book}}"></book-cmp>
+        </block>
+        </view>
+    </view>
+</view>
+
+

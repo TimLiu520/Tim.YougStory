@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+   bookData:null
   },
 
   /**
@@ -15,7 +15,11 @@ Page({
    */
   onLoad: function (options) {
    const hotList =  model.getHotList();
-   hotList.then(res=>console.log(res));
+   hotList.then(res=>{console.log(res.data),
+  this.setData({
+     bookData:res.data
+  });
+});
   },
 
   /**
