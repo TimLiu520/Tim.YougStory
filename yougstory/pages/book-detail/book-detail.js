@@ -23,13 +23,13 @@ Page({
     const likeStatusData=model.getLikeStatus(bid);
     detail.then(res=>{
       this.setData({
-        detailData:res
+        detailData:res.data
       });
     });
 
     coments.then(res=>{
       this.setData({
-        comentsData:res
+        comentsData:res.data.comments
       });
     });
 
