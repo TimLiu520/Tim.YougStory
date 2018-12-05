@@ -8,7 +8,7 @@
 <view class="sub-container">
     <text class="headline">短评</text>
     <view class="comment-container">
-        <block wx:for="{{comentsData}}" wx:for-item="comment" wx:key="content">
+        <block wx:for="{{filter.limitList(comentsData,15)}}" wx:for-item="comment" wx:key="content">
         <tag-cmp content="{{comment.content}}">
         <text class="nums" slot="after">{{'+'+comment.nums}}</text>
         </tag-cmp>
@@ -19,5 +19,49 @@
 <text class="headline">内容简介</text>
 <text class="content" decode="{{true}}">{{filter.format(detailData.summary)}}</text>
 </view>
-<view class="sub-container"></view>
+<view class="sub-container">
+<text class="headline">书本信息</text>
+<view class="detail-contaner">
+      <view class="vertical">
+        <text class="description">出版社</text>
+        <text class="description">出版年</text>
+        <text class="description">页数</text>
+        <text class="description">定价</text>
+        <text class="description">装帧</text>
+      </view>
+      <view class="vertical">
+        <text class="">{{detailData.publisher}}</text>
+        <text class="">{{detailData.pubdate}}</text>
+        <text class="">{{detailData.pages}}</text>
+        <text class="">{{detailData.price}}</text>
+        <text class="">{{detailData.binding}}</text>
+      </view>
+    </view>
 </view>
+</view>
+
+<view wx:if="{{!posting}}"  class="post-container" wx:if="{{!posting}}">
+  <view class="post-fake" bind:tap="onFakePost">
+    <text>输入短评</text>
+  </view>
+    <view class="like-container">
+   <like-cmp bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
+   </view>
+</view>
+
+<view wx:if="{{posting}}" class="posting-container">
+  <view class="post-header">
+    <text >仅可点击标签+1</text>
+    <text class="cancel" bind:tap="onCancel">取消</text>
+  </view>
+  <view class="comment-container">
+     <block wx:for="{{filter.limitList(comentsData,3)}}" wx:for-item="comment" wx:key="content">
+        <tag-cmp content="{{comment.content}}">
+        <text class="nums" slot="after">{{'+'+comment.nums}}</text>
+        </tag-cmp>
+    </block>
+  </view>
+  <input focus="{{posting}}" confirm-type="发送" class="post" placeholder='短评最多12个字' bindconfirm="onPost"></input>
+  <!-- <image class="tip" src="/images/book/tip.png"></image> -->
+</view>
+<mask-cmp  wx:if="{{posting}}" ></mask-cmp>

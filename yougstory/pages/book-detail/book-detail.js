@@ -1,6 +1,8 @@
 // pages/book-detail/book-detail.js
 import {BookModel} from '../../models/book.js'
+import {LikeModel} from '../../models/like.js'
 const model=new BookModel()
+var likeModel=new LikeModel();
 Page({
 
   /**
@@ -10,7 +12,8 @@ Page({
     comentsData:[],
     detailData:null,
     likeStatus:false,
-    likeCount:0
+    likeCount:0,
+    posting:false
   },
 
   /**
@@ -39,6 +42,26 @@ Page({
         likeStatus:res.data.like_status,
         likeCount:res.data.fav_nums
       });
+    });
+  },
+
+  onLike:function(event)
+  {
+     console.log(event);
+     let behavior=event.detail.behavior;
+     console.log(this.data.detailData);
+     likeModel.like(behavior,this.data.detailData.id,400);
+  },
+  onFakePost(event)
+  {
+    this.setData({
+      posting:true
+    });
+  },
+  onCancel(event)
+  {
+    this.setData({
+      posting:false
     });
   },
 
