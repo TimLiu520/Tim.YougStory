@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-   bookData:null
+   bookData:null,
+   searching:false
   },
 
   /**
@@ -22,6 +23,18 @@ Page({
 });
   },
 
+  onSearch(event)
+  {
+    this.setData({
+      searching:true
+    });
+  },
+  onCancel(event)
+  {
+    this.setData({
+      searching:false
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
