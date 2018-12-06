@@ -19,17 +19,14 @@ Component({
   },
 
   attached(){
-    const historyKeys=Keyword.getHistory();
-    const hotKeysData=Keyword.getHot();
-    hotKeysData.then(res=>{
-      console.log(res.data.hot);
+    this.setData({
+      historyKeys:Keyword.getHistory()
+    }); 
+    Keyword.getHot().then(res=>{
       this.setData({
         hotKeys:res.data.hot
       }); 
      });
-    this.setData({
-      historyKeys
-    }); 
   },
 
   /**
