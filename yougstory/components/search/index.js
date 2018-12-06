@@ -1,6 +1,8 @@
 // components/search/index.js
 import {KeywordModel} from '../../models/keyword.js'
 const Keyword=new KeywordModel();
+import {BookModel} from '../../models/book'
+const bookModel=new BookModel();
 Component({
   /**
    * 组件的属性列表
@@ -14,8 +16,10 @@ Component({
    */
   data: {
     finished:false,
+    q:'',
     historyKeys:[],
-    hotKeys:[]
+    hotKeys:[],
+    bookData:[]
   },
 
   attached(){
@@ -37,13 +41,26 @@ Component({
     {
       this.triggerEvent('cancel',{},{});
     },
+    onDelete(event)
+    {
+      this.setData({
+        finished:false
+      });
+    },
     onConfirm(event)
     {
-      const word=event.detail.value;
-      Keyword.addToHistory(word);
       this.setData({
-        historyKeys:Keyword.getHistory()
-      }); 
+        finished:true
+      });
+      const q=event.detail.value||event.detail.text;
+      bookModel.getBookList(0,q).then(res=>{
+          console.log(res.data.books);
+          this.setData({
+            bookData:res.data.books,
+            q
+          });
+          Keyword.addToHistory(q);
+      });
     }
   }
 })
