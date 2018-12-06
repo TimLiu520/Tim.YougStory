@@ -57,7 +57,7 @@
     <text class="cancel" bind:tap="onCancel">取消</text>
   </view>
   <view class="comment-container">
-     <block wx:for="{{filter.limitList(comentsData,3)}}" wx:for-item="comment" wx:key="content">
+     <block wx:for="{{filter.limitList(comentsData,5)}}" wx:for-item="comment" wx:key="content">
         <tag-cmp content="{{comment.content}}" bind:subComment="onSubComment">
         <text class="nums" slot="after">{{'+'+comment.nums}}</text>
         </tag-cmp>

@@ -20,29 +20,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading();
     const bid=options.bid;
     const detail=model.getDetail(bid);
     const coments=model.getComments(bid);
     const likeStatusData=model.getLikeStatus(bid);
-    detail.then(res=>{
-      this.setData({
-        detailData:res.data
-      });
-    });
+    Promise.all([detail,coments,likeStatusData]).then(
+       res=>{
+         console.log(res);
+         this.setData({
+          detailData:res[0].data,
+          comentsData:res[1].data.comments,
+           likeStatus:res[2].data.like_status,
+           likeCount:res[2].data.fav_nums
+         });
+         wx.hideLoading();
+       }
+    );
+    // detail.then(res=>{
+    //   this.setData({
+    //     detailData:res.data
+    //   });
+    // });
 
-    coments.then(res=>{
-      this.setData({
-        comentsData:res.data.comments
-      });
-    });
+    // coments.then(res=>{
+    //   this.setData({
+    //     comentsData:res.data.comments
+    //   });
+    // });
 
-    likeStatusData.then(res=>{
-      console.log(res);
-      this.setData({
-        likeStatus:res.data.like_status,
-        likeCount:res.data.fav_nums
-      });
-    });
+    // likeStatusData.then(res=>{
+    //   console.log(res);
+    //   this.setData({
+    //     likeStatus:res.data.like_status,
+    //     likeCount:res.data.fav_nums
+    //   });
+    // });
   },
 
   onLike:function(event)
@@ -66,7 +79,7 @@ Page({
   },
   onSubComment(event)
   {
-    const text=event.detail.text;
+    const text=event.detail.text||event.detail.value;
     console.log(text);
     if(text.length>12)
     {
