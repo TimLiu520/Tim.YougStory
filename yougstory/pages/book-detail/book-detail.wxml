@@ -11,6 +11,7 @@
         <block wx:for="{{filter.limitList(comentsData,15)}}" wx:for-item="comment" wx:key="content">
         <tag-cmp content="{{comment.content}}">
         <text class="nums" slot="after">{{'+'+comment.nums}}</text>
+            <text class="shadow" wx:if="{{comentsData==false}}">暂无点评</text>
         </tag-cmp>
     </block>
     </view>
@@ -51,17 +52,18 @@
 
 <view wx:if="{{posting}}" class="posting-container">
   <view class="post-header">
-    <text >仅可点击标签+1</text>
+    <text wx:if="{{comentsData==true}}">仅可点击标签+1</text>
+    <text wx:else>暂无点评</text>
     <text class="cancel" bind:tap="onCancel">取消</text>
   </view>
   <view class="comment-container">
      <block wx:for="{{filter.limitList(comentsData,3)}}" wx:for-item="comment" wx:key="content">
-        <tag-cmp content="{{comment.content}}">
+        <tag-cmp content="{{comment.content}}" bind:subComment="onSubComment">
         <text class="nums" slot="after">{{'+'+comment.nums}}</text>
         </tag-cmp>
     </block>
   </view>
-  <input focus="{{posting}}" confirm-type="发送" class="post" placeholder='短评最多12个字' bindconfirm="onPost"></input>
+  <input focus="{{posting}}" confirm-type="发送" class="post" placeholder='短评最多12个字' bindconfirm="onSubComment"></input>
   <!-- <image class="tip" src="/images/book/tip.png"></image> -->
 </view>
 <mask-cmp  wx:if="{{posting}}" ></mask-cmp>

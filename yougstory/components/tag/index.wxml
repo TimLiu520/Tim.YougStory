@@ -1,5 +1,5 @@
 <!--components/tag/index.wxml-->
-<view class="container">
+<view class="container" bind:tap="onPost">
 <text>{{content}}</text>
 <slot name="after"></slot>
 </view>
