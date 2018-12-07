@@ -38,3 +38,6 @@
       <book-cmp show-like="{{false}}" book="{{item}}" class="book" />
     </block>
   </view>
+  <loading-cmp wx:if="{{loadingCenter}}" class="loading-center"></loading-cmp>
+  <loading-cmp wx:if="{{lock}}" class="loading"></loading-cmp>
+  <text wx:if="{{noneResult}}" class="empty-tip">没有搜索到结果</text>

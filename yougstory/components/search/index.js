@@ -26,7 +26,8 @@ Component({
     q:'',
     historyKeys:[],
     hotKeys:[],
-    lock:false
+    lock:false,
+    loadingCenter:false
   },
 
   attached(){
@@ -68,17 +69,17 @@ Component({
     onCancel(event)
     {
       this.triggerEvent('cancel',{},{});
+      this.initData();
     },
     onDelete(event)
     {
-      this.setData({
-        finished:false
-      });
+      this.initData();
+      this._closeResult();
     },
     onConfirm(event)
     {
       this._showResult();
-      this.initData();
+      this._showLoadingCenter();
       const q=event.detail.value||event.detail.text;
       bookModel.getBookList(0,q).then(res=>{
           console.log(res.data);
@@ -88,6 +89,19 @@ Component({
             q
           });
           Keyword.addToHistory(q);
+          this._hideLoadingCenter();
+      });
+    },
+    _showLoadingCenter()
+    {
+      this.setData({
+        loadingCenter:true
+      });
+    },
+    _hideLoadingCenter()
+    {
+      this.setData({
+        loadingCenter:false
       });
     },
     _showResult()
@@ -100,10 +114,21 @@ Component({
       return this.data.lock?true:false;
     },
     _Locked(){
-      return this.data.lock=true;
+      this.setData({
+        lock:true
+      });
     },
     _unLocked(){
-      return this.data.lock=false;
+      this.setData({
+        lock:false
+      });
+    },
+    _closeResult()
+    {
+      this.setData({
+        finished:false,
+        q:''
+      });
     }
   }
 })
