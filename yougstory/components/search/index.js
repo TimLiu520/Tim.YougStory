@@ -14,7 +14,7 @@ Component({
   properties: {
     more:{
       type:String,
-      observer:'_load_more'
+      observer:'loadMore'
     }
   },
 
@@ -44,24 +44,25 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    _load_more()
+    loadMore()
     {
-     console.log(123123);
      if(!this.data.q)
      {
        return;
      }
-     if(this.data.lock)
+     if(this._isLocked())
      {
        return;
      }
      if(this.hasMore())
      {
-      this.data.lock=true;
-      bookModel.getBookList(this.getCurrentStart(),this.data.q).then(res=>{
+        this._Locked();
+        bookModel.getBookList(this.getCurrentStart(),this.data.q).then(res=>{
         this.setMoreData(res.data.books);
-        this.data.lock=false;
-    });
+        this._unLocked();
+        },()=>{
+          this._unLocked();
+        });
      }
     },
     onCancel(event)
@@ -76,9 +77,7 @@ Component({
     },
     onConfirm(event)
     {
-      this.setData({
-        finished:true
-      });
+      this._showResult();
       this.initData();
       const q=event.detail.value||event.detail.text;
       bookModel.getBookList(0,q).then(res=>{
@@ -90,6 +89,21 @@ Component({
           });
           Keyword.addToHistory(q);
       });
+    },
+    _showResult()
+    {
+      this.setData({
+        finished:true
+      });
+    },
+    _isLocked(){
+      return this.data.lock?true:false;
+    },
+    _Locked(){
+      return this.data.lock=true;
+    },
+    _unLocked(){
+      return this.data.lock=false;
     }
   }
 })
