@@ -3,7 +3,8 @@ const paginationBev=Behavior({
    data: {
     bookData:[],
     total:null,
-    noneResult:false
+    noneResult:false,
+    lock:false
   },
     methods: {
 
@@ -38,11 +39,25 @@ const paginationBev=Behavior({
           return true;
         }
       },
+      isLocked(){
+        return this.data.lock?true:false;
+      },
+      Locked(){
+        this.setData({
+          lock:true
+        });
+      },
+      unLocked(){
+        this.setData({
+          lock:false
+        });
+      },
       initData()
       {
         this.setData({
           bookData:[],
-          noneResult:false
+          noneResult:false,
+          lock:false
         })
         this.data.total=null
       }

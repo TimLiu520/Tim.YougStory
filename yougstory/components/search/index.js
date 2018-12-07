@@ -51,18 +51,18 @@ Component({
      {
        return;
      }
-     if(this._isLocked())
+     if(this.isLocked())
      {
        return;
      }
      if(this.hasMore())
      {
-        this._Locked();
+        this.Locked();
         bookModel.getBookList(this.getCurrentStart(),this.data.q).then(res=>{
         this.setMoreData(res.data.books);
         this._unLocked();
         },()=>{
-          this._unLocked();
+          this.unLocked();
         });
      }
     },
@@ -108,19 +108,6 @@ Component({
     {
       this.setData({
         finished:true
-      });
-    },
-    _isLocked(){
-      return this.data.lock?true:false;
-    },
-    _Locked(){
-      this.setData({
-        lock:true
-      });
-    },
-    _unLocked(){
-      this.setData({
-        lock:false
       });
     },
     _closeResult()
