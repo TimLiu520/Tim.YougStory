@@ -60,7 +60,7 @@ Component({
         this.Locked();
         bookModel.getBookList(this.getCurrentStart(),this.data.q).then(res=>{
         this.setMoreData(res.data.books);
-        this._unLocked();
+        this.unLocked();
         },()=>{
           this.unLocked();
         });

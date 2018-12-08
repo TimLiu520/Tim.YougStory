@@ -119,6 +119,9 @@
 
   .loading {
     margin: 50rpx 0 50rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
   }
   
   .loading-center {
