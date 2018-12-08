@@ -28,7 +28,7 @@
   </view>
 </view>
 
-<navigator class="nav" target="miniProgram" app-id="wxa5725643895b561a" open-type="navigate">
+<!-- <navigator class="nav" target="miniProgram" app-id="wxa5725643895b561a" open-type="navigate">
 <image class="study" src="/images/my/study.png"></image>
- </navigator>
+ </navigator> -->
 
