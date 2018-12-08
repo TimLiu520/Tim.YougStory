@@ -1,0 +1,17 @@
+<!--pages/classic-detail/classic-detail.wxml-->
+<view class="container">
+    <view class="container-top">
+        <nodate-cmp index="{{classicData.index}}"></nodate-cmp>
+        <view class="like-container">
+            <like-cmp like="{{likeStatus}}" count="{{likeCount}}" bind:like="onLike"></like-cmp>
+              <imgbtn-cmp  open-type="share" class="share-btn">
+                <image class="share" slot="img" src="/images/icon/share.png" /> 
+            </imgbtn-cmp>
+        </view>
+    </view>
+    <view class="container-body">
+        <movie-cmp wx:if="{{classicData.type==100}}" imgurl="{{classicData.image}}" content="{{classicData.content}}"></movie-cmp> 
+        <music-cmp wx:if="{{classicData.type==200}}"  imgurl="{{classicData.image}}" content="{{classicData.content}}" src="{{classicData.url}}"></music-cmp> 
+        <essay-cmp wx:if="{{classicData.type==300}}"  imgurl="{{classicData.image}}" content="{{classicData.content}}"></essay-cmp>
+    </view>
+</view>

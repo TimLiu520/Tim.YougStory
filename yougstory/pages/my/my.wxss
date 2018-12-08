@@ -95,13 +95,16 @@
     width:97rpx;
     height:42rpx;
   }
+
+  .nav{
+    position: absolute;
+    top:40rpx;
+    right:45rpx;
+  }
   
   .study{
     width:88rpx;
     height:88rpx;
-    position: absolute;
-    top:40rpx;
-    right:45rpx;
   }
   
   .test{

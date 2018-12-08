@@ -1,3 +1,7 @@
+import {BookModel} from '../../models/book.js'
+const bookModel=new BookModel();
+import {ClassicModel} from '../../models/classic.js'
+var classicModel=new ClassicModel();
 // pages/my/my.js
 Page({
 
@@ -6,7 +10,9 @@ Page({
    */
   data: {
    userInfo:null,
-   hasUserInfo:false
+   hasUserInfo:false,
+   bookCount:0,
+   classics:[]
   },
 
   /**
@@ -14,6 +20,12 @@ Page({
    */
   onLoad: function (options) {
    this.userAuthorized();
+   this.getMyFavor();
+   bookModel.getMyBookCount().then(res=>{
+      this.setData({
+        bookCount:res.data.count
+      })
+   });
   },
   userAuthorized()
   {
@@ -46,6 +58,26 @@ Page({
       hasUserInfo:true
     });
     console.log(userInfo);
+  },
+  getMyFavor()
+  {
+    classicModel.getMyFavor(res=>{
+      console.log(res);
+      this.setData({
+        classics:res
+      })
+    });
+  },
+  onJumpToAbout(event)
+  {
+    wx.navigateTo({
+      url:'/pages/about/about'
+    })
+  },
+  onPreviewTap: function(event) {
+    wx.navigateTo({
+      url: '/pages/classic-detail/classic-detail?cid=' + event.detail.cid + '&type=' + event.detail.type
+    })
   },
 
   /**

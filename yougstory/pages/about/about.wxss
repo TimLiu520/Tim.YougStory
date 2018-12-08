@@ -1,0 +1,8 @@
+/* pages/about/about.wxss */
+.about{
+    width:750rpx;
+    height:100%;
+  }
+.page{
+    background-size:100% 100%; 
+}
