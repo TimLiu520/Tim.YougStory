@@ -47,6 +47,9 @@
   </view>
     <view class="like-container">
    <like-cmp bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
+             <imgbtn-cmp  open-type="share" class="share-btn">
+                <image class="share" slot="img" src="/images/icon/share.png" /> 
+            </imgbtn-cmp>
    </view>
 </view>
 
