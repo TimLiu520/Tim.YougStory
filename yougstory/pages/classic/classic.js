@@ -44,6 +44,7 @@ Page({
   {
     let index=this.data.classicData.index;
     model.getClassic(index,"previous",(data)=>{
+      this._getLikeStatus(data.id,data.type);
       this.setData({
         classicData:data,
         latest:model.isLatest(data.index),
@@ -56,6 +57,7 @@ Page({
     console.log(event);
     let index=this.data.classicData.index;
     model.getClassic(index,"next",(data)=>{
+      this._getLikeStatus(data.id,data.type);
       this.setData({
         classicData:data,
         latest:model.isLatest(data.index),
@@ -63,7 +65,14 @@ Page({
       });
     });
   },
-
+  _getLikeStatus: function (cid, type) {
+    likeModel.getClassicLikeStatus(cid, type, (data) => {
+      this.setData({
+        likeStatus: data.like_status,
+        likeCount: data.fav_nums
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
